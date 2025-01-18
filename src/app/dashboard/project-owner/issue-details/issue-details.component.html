@@ -1,0 +1,70 @@
+<div class="d-flex">
+  <app-sidebar class="sidebar"></app-sidebar>
+  <div class="main-content flex-grow-1 d-flex flex-column vh-100 overflow-y-scroll">
+    <div class="p-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a routerLink="/dashboard" class="text-warning">Project Board</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">Issue Details</li>
+        </ol>
+      </nav>
+      <div class="issue-details">
+        <h2 class="text-warning p-3 rounded-3 mb-4">{{ issue?.summary }}</h2>
+        <p><strong>Description:</strong> {{ issue?.description }}</p>
+        <hr />
+        <div class="row">
+          <div class="col-md-8">
+            <h4 class="text-muted mb-2">Details</h4>
+            <div class="d-flex justify-content-between">
+              <div class="d-flex flex-column gap-2">
+                <p class="m-0"><span class="fw-bold text-muted">Type:</span> {{ issue?.type }}</p>
+                <p class="m-0"><span class="fw-bold text-muted">Tags:</span> <span class="badge bg-success">{{ issue?.tags }}</span></p>
+                <p class="m-0"><span class="fw-bold text-muted">Story Points:</span> {{ issue?.storyPoint }}</p>
+              </div>
+              <div class="d-flex flex-column gap-2">
+                <p class="m-0"><span class="fw-bold text-muted">Sprint:</span> {{ issue?.sprint }}</p>
+                <p class="m-0"><span class="fw-bold text-muted">Priority:</span> {{ issue?.priority }}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <button class="btn btn-dark mb-3 w-100" (click)="editIssue()">Edit Issue</button>
+            <div class="card">
+              <div class="card-body d-flex flex-column gap-2">
+                <p class="m-0"><span class="fw-bold">Status:</span> {{ issue?.status }}</p>
+                <p class="m-0"><span class="fw-bold">Assignee:</span> {{ issue?.assignee }}</p>
+                <p class="m-0"><span class="fw-bold">Created On:</span> {{ issue?.createdOn | date }}</p>
+                <p class="m-0"><span class="fw-bold">Last Updated:</span> {{ issue?.lastUpdated | date: 'short' }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="container mt-4">
+          <div class="d-flex gap-2 mb-3">
+            <h4 class="m-0">Comments</h4>
+            <a (click)="toggleAddComment()" class="text-warning align-self-center">
+              <i class="bi bi-plus-circle"></i> Add Comment
+            </a>
+          </div>
+          <div *ngIf="showAddComment">
+            <textarea [(ngModel)]="newCommentText" class="form-control mb-2" placeholder="Add a comment"></textarea>
+            <button class="btn btn-dark me-2" (click)="addComment()">Submit</button>
+            <button class="btn btn-outline-dark" (click)="toggleAddComment()">Cancel</button>
+          </div>
+          <ul class="list-group mt-2">
+            <li *ngFor="let comment of comments" class="list-group-item">
+              <p>{{ comment.description }}</p>
+              <small>Posted on: {{ comment.createdDate | date }} | Added by: {{ comment.userName }}</small>
+              <button *ngIf="comment.comment_id !== undefined" class="btn btn-danger btn-sm float-end" (click)="deleteComment(comment.comment_id)">
+                <i class="bi bi-trash3 me-1"></i> Delete
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

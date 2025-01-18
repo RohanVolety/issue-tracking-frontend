@@ -1,0 +1,65 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .custom-header {
+    background-color: #ffc107;
+    padding: 10px;
+    text-align: right;
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .main-container {
+    display: flex;
+  }
+  
+  .content {
+    padding: 20px;
+    flex-grow: 1;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .mt-3 {
+    margin-top: 1rem;
+  }
+  
+  .breadcrumb {
+    background-color: transparent;
+  }
+  
+  .issue-details {
+    margin-top: 20px;
+  }
+  
+  .project-name {
+    background-color: rgb(227, 227, 227);
+    color: #ffc107;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  button {
+    margin-right: 10px;
+  }
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  

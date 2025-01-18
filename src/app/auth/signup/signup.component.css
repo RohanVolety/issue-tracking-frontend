@@ -1,0 +1,41 @@
+.header {
+    background-color: #ffc107; /* Yellow background */
+    padding: 10px;
+    text-align: center;
+    color: #fff; /* White text */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 500px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-yellow {
+    width: 100%; /* Full width button */
+    background-color: #ffc107; /* Yellow background */
+    border-color: #ffc107; /* Yellow border */
+    color: #fff; /* White text */
+}
+
+.btn-yellow:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+    border-color: #d39e00; /* Darker yellow border on hover */
+}
+
+.text-danger {
+    font-size: 14px;
+}

@@ -1,0 +1,92 @@
+<!-- <div class="layout-container">
+    <app-sidebar></app-sidebar>
+    <div class="main-content">
+        <header class="header bg-warning d-flex align-items-center p-2">
+            <h1 class="header-title ml-auto">Issue Tracking System</h1>
+          </header>
+    <div class="container mt-3">
+        <h2>Create Project</h2>
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+            <div class="form-row"> 
+                <div class="form-group col-md-6">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" class="form-control" formControlName="projectName" placeholder="Project Name">
+                    <div *ngIf="projectForm.get('projectName')?.invalid && projectForm.get('projectName')?.touched" class="text-danger">
+                        <small *ngIf="projectForm.get('projectName')?.errors?.['required']">Project Name is required.</small>
+                        <small *ngIf="projectForm.get('projectName')?.errors?.['pattern']">Invalid characters in Project Name.</small>
+                    </div>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="projectOwner">Project Owner ID</label>
+                    <input type="number" id="projectOwner" class="form-control" formControlName="projectOwner" [value]="projectOwnerId" readonly>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="startDate">Project Start Date</label>
+                    <input type="date" id="startDate" class="form-control" formControlName="startDate">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="endDate">Project End Date</label>
+                    <input type="date" id="endDate" class="form-control" formControlName="endDate">
+                </div>
+            </div>
+            <div class="button-row">
+                <button type="submit" class="btn btn-warning" [disabled]="projectForm.invalid || isSubmitting">Create</button>
+                <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
+</div> -->
+
+
+
+
+<div class="layout-container">
+    <app-sidebar></app-sidebar>
+    <div class="main-content">
+      <header class="header bg-warning d-flex align-items-center p-2">
+        <h1 class="header-title ml-auto">Issue Tracking System</h1>
+      </header>
+      <div class="container mt-3">
+        <h2>Create Project</h2>
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="projectName">Project Name</label>
+              <input type="text" id="projectName" class="form-control" formControlName="projectName" placeholder="Project Name">
+              <div *ngIf="projectForm.get('projectName')?.invalid && projectForm.get('projectName')?.touched" class="text-danger">
+                <small *ngIf="projectForm.get('projectName')?.errors?.['required']">Project Name is required.</small>
+                <small *ngIf="projectForm.get('projectName')?.errors?.['maxlength']">Project Name cannot be more than 50 chars.</small>
+                <small *ngIf="projectForm.get('projectName')?.errors?.['pattern']">Invalid characters in Project Name.</small>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="projectOwner">Project Owner ID</label>
+              <input type="number" id="projectOwner" class="form-control" formControlName="projectOwner" [value]="projectOwnerId" readonly>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="startDate">Project Start Date</label>
+              <input type="date" id="startDate" class="form-control" formControlName="startDate">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="endDate">Project End Date</label>
+              <input type="date" id="endDate" class="form-control" formControlName="endDate">
+              <div *ngIf="projectForm.get('endDate')?.invalid && projectForm.get('endDate')?.touched" class="text-danger">
+                <small *ngIf="projectForm.get('endDate')?.errors?.['required']">End Date is required.</small>
+                <small *ngIf="projectForm.get('endDate')?.errors?.['dateLessThan']">End Date cannot be before Start Date.</small>
+              </div>
+            </div>
+          </div>
+          <div class="button-row">
+            <button type="submit" class="btn btn-warning" [disabled]="projectForm.invalid || isSubmitting">Create</button>
+            <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

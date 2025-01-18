@@ -1,0 +1,123 @@
+<div class="layout-container">
+    <!-- Sidebar -->
+    <app-sidebar class="sidebar"></app-sidebar>
+    
+    <div class="main-content">
+        <!-- Header -->
+        <header class="header bg-warning d-flex align-items-center p-2">
+            <!-- Title with ml-auto to push it to the extreme right -->
+            <h1 class="header-title ml-auto">Issue Tracking System</h1>
+          </header>
+        
+        <!-- Main content for Edit Issue Form -->
+        <section class="dashboard p-4">
+            <div class="container mt-3">
+                <h2>Edit Issue</h2>
+                <form [formGroup]="issueForm" (ngSubmit)="onSubmit()">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="summary">Summary</label>
+                            <input type="text" id="summary" class="form-control" formControlName="summary" placeholder="Summary">
+                            <div *ngIf="issueForm.get('summary')?.invalid && issueForm.get('summary')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('summary')?.errors?.['required']">Summary is required.</small>
+                                <small *ngIf="issueForm.get('summary')?.errors?.['minlength']">Minimum length is 5.</small>
+                                <small *ngIf="issueForm.get('summary')?.errors?.['maxlength']">Maximum length is 100.</small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="project">Project</label>
+                            <select id="project" class="form-control" formControlName="project">
+                                <option *ngFor="let project of projects" [value]="project.project_id">{{ project.projectName }}</option>
+                            </select>
+                            <div *ngIf="issueForm.get('project')?.invalid && issueForm.get('project')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('project')?.errors?.['required']">Project is required.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="type">Type</label>
+                            <select id="type" class="form-control" formControlName="type" >
+                                <option value="TASK">TASK</option>
+                                <option value="BUG">BUG</option>
+                                <option value="FEATURE">FEATURE</option>
+                            </select>
+                            <div *ngIf="issueForm.get('type')?.invalid && issueForm.get('type')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('type')?.errors?.['required']">Type is required.</small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="priority">Priority</label>
+                            <select id="priority" class="form-control" formControlName="priority">
+                                <option value="LOW">LOW</option>
+                                <option value="MEDIUM">MEDIUM</option>
+                                <option value="HIGH">HIGH</option>
+                            </select>
+                            <div *ngIf="issueForm.get('priority')?.invalid && issueForm.get('priority')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('priority')?.errors?.['required']">Priority is required.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="description">Description</label>
+                            <textarea id="description" class="form-control" formControlName="description" placeholder="Description"></textarea>
+                            <div *ngIf="issueForm.get('description')?.invalid && issueForm.get('description')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('description')?.errors?.['required']">Description is required.</small>
+                                <small *ngIf="issueForm.get('description')?.errors?.['minlength']">Minimum length is 10.</small>
+                                <small *ngIf="issueForm.get('description')?.errors?.['maxlength']">Maximum length is 500.</small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="assignee">Assignee ID</label>
+                            <input type="text" id="assignee" class="form-control" formControlName="assignee" placeholder="Assignee">
+                            <div *ngIf="issueForm.get('assignee')?.invalid && issueForm.get('assignee')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('assignee')?.errors?.['required']">Assignee is required.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="sprint">Sprint</label>
+                            <input type="number" id="sprint" class="form-control" formControlName="sprint" placeholder="Sprint">
+                            <div *ngIf="issueForm.get('sprint')?.invalid && issueForm.get('sprint')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('sprint')?.errors?.['required']">Sprint is required.</small>
+                                <small *ngIf="issueForm.get('sprint')?.errors?.['min']">Sprint must be a positive integer.</small>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="status">Status</label>
+                            <select id="status" class="form-control" formControlName="status">
+                                <option value="TO-DO">TO-DO</option>
+                                <option value="TESTING">TESTING</option>
+                                <option value="DEVELOPMENT">DEVELOPMENT</option>
+                                <option value="DONE">DONE</option>
+                            </select>
+                            <div *ngIf="issueForm.get('status')?.invalid && issueForm.get('status')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('status')?.errors?.['required']">Status is required.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="tags">Tags</label>
+                            <input type="text" id="tags" class="form-control" formControlName="tags" placeholder="Tags">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="storyPoint">Story Point</label>
+                            <input type="number" id="storyPoint" class="form-control" formControlName="storyPoint" placeholder="Story Point">
+                            <div *ngIf="issueForm.get('storyPoint')?.invalid && issueForm.get('storyPoint')?.touched" class="text-danger">
+                                <small *ngIf="issueForm.get('storyPoint')?.errors?.['required']">Story Point is required.</small>
+                                <small *ngIf="issueForm.get('storyPoint')?.errors?.['min']">Story Point must be a positive integer.</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-row">
+                        <button type="submit" class="btn btn-warning" [disabled]="issueForm.invalid || isSubmitting">Edit</button>
+                        <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<!-- <aside class="sidebar bg-dark text-white p-3">
+  <img [src]="userProfileImage" alt="User Profile" class="rounded-circle mb-3" />
+  <h3>{{ userName }}</h3>
+  <p>{{ userEmail }}</p>
+  <p>1 Projects Created</p>
+  <p>2 Issues Created</p>
+  <ul class="nav flex-column">
+  `    <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/dashboard']">Project Dashboard</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/create-issue']">Create Issue</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/create-project']">Create Project</a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link logout-button" (click)="logout()">Logout</a>
+      </li>
+  </ul>
+</aside>
+  -->
+
+
+
+  <aside class="sidebar bg-dark text-white p-3">
+    <img [src]="userProfileImage" alt="User Profile" class="rounded-circle mb-3 profile-image" />
+    <h3>{{ userName }}</h3>
+    <p>{{ userEmail }}</p>
+    <div class="stats">
+        <div>
+            <h4>{{ projectsCreatedCount }}</h4>
+            <p>Projects Created</p>
+        </div>
+        <div>
+            <h4>{{ issuesCreatedCount }}</h4>
+            <p>Issues Created</p>
+        </div>
+    </div>
+    <ul class="nav flex-column">
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/dashboard']"><i class="fas fa-tachometer-alt"></i> Project Dashboard</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/create-issue']"><i class="fas fa-exclamation-circle"></i> Create Issue</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/create-project']"><i class="fas fa-plus"></i> Create Project</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link logout-button" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        </li>
+    </ul>
+</aside>

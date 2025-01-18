@@ -1,0 +1,88 @@
+ <div class="layout-container">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <div class="main-content">
+        <app-header class="custom-header" (searchEvent)="filterIssues($event)"></app-header>
+        <section class="dashboard p-4">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2>Project Dashboard</h2>
+                <button class="btn btn-outline-dark ml-2 view-insights-btn" (click)="viewInsights()">View Insights</button>
+            </div>
+ 
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="project">Project Name:</label>
+                        <select id="project" class="form-select mb-3" (change)="onProjectChange($event)" [(ngModel)]="selectedProjectId">
+                            <option *ngFor="let project of projects" [value]="project.project_id">
+                                {{ project.projectName }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="projectOwner">Project Owner Name:</label>
+                        <input type="text" id="projectOwner" class="form-control" [(ngModel)]="projectOwnerName" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="startDate">Start Date:</label>
+                        <input type="text" id="startDate" class="form-control" [(ngModel)]="startDate" disabled>
+                    </div>
+                    <div class="col">
+                        <label for="endDate">End Date:</label>
+                        <input type="text" id="endDate" class="form-control" [(ngModel)]="endDate" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="col">
+                        <label for="assignee">Filter by Assignee:</label>
+                        <select id="assignee" class="form-select" (change)="filterByAssignee($event)">
+                            <option value="">All</option>
+                            <option *ngFor="let member of teamMembers" [value]="member.name">{{ member.name }}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="priority">Filter by Priority:</label>
+                        <select id="priority" class="form-select" (change)="filterByPriority($event)">
+                            <option value="">All</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="issue-board row">
+                <div class="col-md-3" *ngFor="let category of issueCategories">
+                    <h3 class="text-center">{{ category }}</h3>
+                    <div *ngFor="let issue of getIssuesByCategory(category)" class="card rounded-4 mb-3">
+                        <div class="issue-card" (click)="viewIssueDetails(issue.issue_id)">
+                            <div class="issue-header">
+                                <span class="issue-id">Id: {{ issue.issue_id }}</span>
+                                <span class="issue-date">{{ issue.createdDate | date:'M/d/yyyy' }}</span>
+                            </div>
+                            <div class="issue-title">{{ issue.summary }}</div>
+                            <div class="issue-description">{{ issue.description }}</div>
+                            <div class="issue-footer">
+                                <img class="issue-avatar" [src]="issue.assigneeImage" alt="{{ issue.assigneeName }}">
+                                <span class="issue-assignee">{{ issue.assigneeName }}</span>
+                                <span class="issue-priority" [ngClass]="getPriorityClass(issue.priority)">{{ issue.priority }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div> 
+
+
+
+

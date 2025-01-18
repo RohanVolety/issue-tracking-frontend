@@ -1,0 +1,116 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.custom-header {
+  background-color: #ffc107;
+  padding: 10px;
+  text-align: right;
+}
+.sidebar {
+  width: 220px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100vh; /* Ensure the sidebar extends the full height */
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+}
+
+.main-container {
+  display: flex;
+}
+
+.content {
+  padding: 20px;
+  flex-grow: 1;
+  max-width: 800px;
+  margin: auto;
+}
+
+.mt-3 {
+  margin-top: 1rem;
+}
+
+.breadcrumb {
+  background-color: transparent;
+}
+
+.issue-details {
+  margin-top: 20px;
+}
+
+.project-name {
+  background-color: rgb(244, 238, 238);
+  color: #ffc107;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button {
+  margin-right: 10px;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.issue-meta {
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.issue-meta p {
+  margin: 10px 0;
+}
+
+.badge-success {
+  background-color: green;
+  color: white;
+}
+
+hr.dark-hr {
+  border-top: 2px solid #333;
+}
+
+h3 {
+  margin-top: 20px;
+}
+
+textarea.form-control {
+  width: 100%;
+  resize: none;
+}
+
+.btn-dark {
+  background-color: #000;
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+.detail-item {
+  margin-bottom: 10px;
+}

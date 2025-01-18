@@ -1,0 +1,19 @@
+<!-- <header class="header bg-warning d-flex align-items-center p-2">
+  <h1 class="flex-grow-1 header-title">Issue Tracking System</h1>
+  <input type="text" class="form-control w-50 search-input" placeholder="Search issues..." [(ngModel)]="searchText" (input)="onSearch()" />
+  <button class="btn btn-outline-light ml-2 view-insights-btn" (click)="viewInsights()">View Insights</button>
+</header> -->
+
+
+<!-- <header class="header bg-warning d-flex align-items-center p-2">
+  <input type="text" class="form-control w-50 search-input" placeholder="Search issues..." [(ngModel)]="searchText" (input)="onSearch()" />
+  <h1 class="flex-grow-1 header-title text-center">Issue Tracking System</h1>
+</header> -->
+
+<header class="header bg-warning d-flex align-items-center p-2">
+  <!-- Search input box with reduced width -->
+  <input type="text" class="form-control w-25 search-input" placeholder="Search issues..." [(ngModel)]="searchText" (input)="onSearch()" />
+  
+  <!-- Title with ml-auto to push it to the extreme right -->
+  <h1 class="header-title ml-auto">Issue Tracking System</h1>
+</header>

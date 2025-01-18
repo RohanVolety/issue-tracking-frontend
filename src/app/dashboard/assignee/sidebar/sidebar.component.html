@@ -1,0 +1,16 @@
+<aside class="sidebar bg-dark text-white p-3">
+  <img [src]="userProfileImage" alt="User Profile" class="rounded-circle mb-3 profile-image" />
+  <h3>{{ userName }}</h3>
+  <p>{{ userEmail }}</p>
+  <div class="stats">
+      <div>
+          <h4>{{ issueCount }}</h4>
+          <p>Issues Assigned</p>
+      </div>
+  </div>
+  <ul class="nav flex-column">
+      <li class="nav-item">
+          <a class="nav-link logout-button" (click)="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+  </ul>
+</aside>

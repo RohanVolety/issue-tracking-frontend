@@ -1,0 +1,23 @@
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  background-color: #ffc107;
+}
+
+.header-title {
+  font-size: 20px; 
+  font-weight: bold; 
+  margin: 10; 
+  text-align: right;  
+  /* justify-content: flex-end;  */
+}
+
+.search-input {
+  font-size: 14px; 
+  padding: 5px; 
+  margin-right: 10px; 
+}
+

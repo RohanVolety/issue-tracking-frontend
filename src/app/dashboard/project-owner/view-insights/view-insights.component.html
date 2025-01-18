@@ -1,0 +1,223 @@
+<!-- <div class="main-container">
+    <app-sidebar class="sidebar"></app-sidebar>
+    
+    <div class="content-container container mt-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/dashboard" class="text-warning">Project Board</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Project Insights</li>
+            </ol>
+        </nav>
+
+        <h2>Project Insights</h2>
+        <div class="form-group">
+            <label for="project">Select Project</label>
+            <select id="project" class="form-control" [(ngModel)]="selectedProjectId" (change)="onProjectChange()">
+                <option *ngFor="let project of projects" [value]="project.project_id">{{ project.projectName }}</option>
+            </select>
+         </div>
+        <div *ngIf="insights">
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Status Bar</h3>
+                    <div class="progress mb-3" style="height: 50px">
+                        <div class="progress-bar bg-warning" role="progressbar" [style.width.%]="(insights.TO_DO / totalIssues) * 100" [attr.aria-valuenow]="insights.TO_DO" aria-valuemin="0" aria-valuemax="100">TO DO: {{insights.TO_DO}}</div>
+                        <div class="progress-bar bg-info" role="progressbar" [style.width.%]="(insights.IN_PROGRESS / totalIssues) * 100" [attr.aria-valuenow]="insights.IN_PROGRESS" aria-valuemin="0" aria-valuemax="100">IN PROGRESS: {{insights.IN_PROGRESS}}</div>
+                        <div class="progress-bar bg-success" role="progressbar" [style.width.%]="(insights.DONE / totalIssues) * 100" [attr.aria-valuenow]="insights.DONE" aria-valuemin="0" aria-valuemax="100">COMPLETED: {{insights.DONE}}</div>
+                        <div class="progress-bar bg-primary" role="progressbar" [style.width.%]="(insights.TESTING / totalIssues) * 100" [attr.aria-valuenow]="insights.TESTING" aria-valuemin="0" aria-valuemax="100">TESTING: {{insights.TESTING}}</div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="font-size: 0.9em; padding: 10px;">
+                    <h4 style="font-size: 1.2em;">Project Owner</h4>
+                    <div class="card mb-3" style="padding: 10px;">
+                        <div class="card-body text-center" style="padding: 10px;">
+                            <img [src]="projectOwner.profile" class="rounded-circle mb-2" alt="Project Owner Image" width="60" height="60">
+                            <h6 class="card-title" style="font-size: 1em;">{{ projectOwner.name }}</h6>
+                            <p class="card-text"><small class="text-muted">Project Owner</small></p>
+                        </div>
+                    </div>
+                    <h4 style="font-size: 1.2em;">Team Members</h4>
+                    <ul class="list-group">
+                        <li *ngFor="let member of teamMembers" class="list-group-item" style="padding: 5px;">
+                            <div class="d-flex align-items-center">
+                                <img [src]="member.profile" class="rounded-circle mr-3" alt="Team Member Image" width="30" height="30">
+                                <div>
+                                    <h6 class="mb-0" style="font-size: 0.9em;">{{ member.name }}</h6>
+                                    <p class="mb-0"><small class="text-muted">{{ member.role }}</small></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="main-container">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <div class="content-container container mt-3">
+   
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/dashboard" class="text-warning">Project Board</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Project Insights</li>
+            </ol>
+        </nav>
+
+        <h2>Project Insights</h2>
+        <div class="form-group">
+            <label for="project">Select Project</label>
+            <select id="project" class="form-control" [(ngModel)]="selectedProjectId" (change)="onProjectChange()">
+                <option *ngFor="let project of projects" [value]="project.project_id">{{ project.projectName }}</option>
+            </select>
+        </div>
+        
+        <div *ngIf="insights">
+            <div class="project-summary">
+            
+                <p class="total-issues">Total Number of Issues: {{ totalIssues }}</p>
+                <div class="issue-status-counts">
+                    <div class="status-count">
+                        <span class="count">{{ insights.TO_DO }}</span>
+                        <span class="status-label">TO DO</span>
+                    </div>
+                    <div class="status-count">
+                        <span class="count">{{ insights.IN_PROGRESS }}</span>
+                        <span class="status-label">IN PROGRESS</span>
+                    </div>
+                    <div class="status-count">
+                        <span class="count">{{ insights.TESTING }}</span>
+                        <span class="status-label">TESTING</span>
+                    </div>
+                    <div class="status-count">
+                        <span class="count">{{ insights.DONE }}</span>
+                        <span class="status-label">COMPLETED</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Status Bar</h3>
+                    <div class="progress mb-3" style="height: 50px">
+                        <div class="progress-bar bg-warning" role="progressbar" [style.width.%]="(insights.TO_DO / totalIssues) * 100" [attr.aria-valuenow]="insights.TO_DO" aria-valuemin="0" aria-valuemax="100">TO DO: {{insights.TO_DO}}</div>
+                        <div class="progress-bar bg-info" role="progressbar" [style.width.%]="(insights.IN_PROGRESS / totalIssues) * 100" [attr.aria-valuenow]="insights.IN_PROGRESS" aria-valuemin="0" aria-valuemax="100">IN PROGRESS: {{insights.IN_PROGRESS}}</div>
+                        <div class="progress-bar bg-primary" role="progressbar" [style.width.%]="(insights.TESTING / totalIssues) * 100" [attr.aria-valuenow]="insights.TESTING" aria-valuemin="0" aria-valuemax="100">TESTING: {{insights.TESTING}}</div>
+                        <div class="progress-bar bg-success" role="progressbar" [style.width.%]="(insights.DONE / totalIssues) * 100" [attr.aria-valuenow]="insights.DONE" aria-valuemin="0" aria-valuemax="100">COMPLETED: {{insights.DONE}}</div>
+                    </div>
+                </div>
+                <div class="col-md-4" style="font-size: 0.9em; padding: 10px;">
+                    <h4 style="font-size: 1.2em;">Project Owner</h4>
+                    <div class="card mb-3" style="padding: 10px;">
+                        <div class="card-body text-center" style="padding: 10px;">
+                            <img [src]="projectOwner.profile" class="rounded-circle mb-2" alt="Project Owner Image" width="60" height="60">
+                            <h6 class="card-title" style="font-size: 1em;">{{ projectOwner.name }}</h6>
+                            <p class="card-text"><small class="text-muted">Project Owner</small></p>
+                        </div>
+                    </div>
+                    <h4 style="font-size: 1.2em;">Team Members</h4>
+                    <ul class="list-group">
+                        <li *ngFor="let member of teamMembers" class="list-group-item" style="padding: 5px;">
+                            <div class="d-flex align-items-center">
+                                <img [src]="member.profile" class="rounded-circle mr-3" alt="Team Member Image" width="30" height="30">
+                                <div>
+                                    <h6 class="mb-0" style="font-size: 0.9em;">{{ member.name }}</h6>
+                                    <p class="mb-0"><small class="text-muted">{{ member.role }}</small></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="main-container">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <div class="content-container container mt-3">
+        <!-- Breadcrumb Navigation Added Here -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/dashboard" class="text-warning">Project Board</a>
+                </li>
+                <li class="breadcrumb-item active" aria-current="page">Project Insights</li>
+            </ol>
+        </nav>
+
+        <h2>Project Insights</h2>
+        <div class="form-group mb-4">
+            <label for="project">Select Project</label>
+            <select id="project" class="form-select" [(ngModel)]="selectedProjectId" (change)="onProjectChange()">
+                <option *ngFor="let project of projects" [value]="project.project_id">{{ project.projectName }}</option>
+            </select>
+        </div>
+        
+        <div *ngIf="insights">
+            <div class="project-summary">
+               
+                <p class="total-issues">Total Number of Issues: {{ totalIssues }}</p>
+                <div class="issue-status-counts">
+                    <div class="status-count">
+                        <span class="count">{{ insights.TO_DO }}</span>
+                        <span class="status-label">TO DO</span>
+                    </div>
+                    <div class="status-count">
+                        <span class="count">{{ insights.IN_PROGRESS }}</span>
+                        <span class="status-label">IN PROGRESS</span>
+                    </div>
+                    <div class="status-count">
+                        <span class="count">{{ insights.TESTING }}</span>
+                        <span class="status-label">TESTING</span>
+                    </div>
+                    <div class="status-count">
+                        <span class="count">{{ insights.DONE }}</span>
+                        <span class="status-label">COMPLETED</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Status Bar</h3>
+                    <div class="progress mb-3" style="height: 50px">
+                        <div class="progress-bar bg-warning" role="progressbar" [style.width.%]="(insights.TO_DO / totalIssues) * 100" [attr.aria-valuenow]="insights.TO_DO" aria-valuemin="0" aria-valuemax="100">TO DO: {{insights.TO_DO}}</div>
+                        <div class="progress-bar bg-info" role="progressbar" [style.width.%]="(insights.IN_PROGRESS / totalIssues) * 100" [attr.aria-valuenow]="insights.IN_PROGRESS" aria-valuemin="0" aria-valuemax="100">IN PROGRESS: {{insights.IN_PROGRESS}}</div>
+                        <div class="progress-bar bg-primary" role="progressbar" [style.width.%]="(insights.TESTING / totalIssues) * 100" [attr.aria-valuenow]="insights.TESTING" aria-valuemin="0" aria-valuemax="100">TESTING: {{insights.TESTING}}</div>
+                        <div class="progress-bar bg-success" role="progressbar" [style.width.%]="(insights.DONE / totalIssues) * 100" [attr.aria-valuenow]="insights.DONE" aria-valuemin="0" aria-valuemax="100">COMPLETED: {{insights.DONE}}</div>
+                    </div>
+                </div>
+                <!-- Project Owner and Team Members Section -->
+                <div class="col-md-4" style="font-size: 0.9em; padding: 10px;">
+                    <h4 style="font-size: 1.2em;">Project Owner</h4>
+                    <div class="card mb-3" style="padding: 10px;">
+                        <div class="card-body text-center" style="padding: 10px;">
+                            <img [src]="projectOwner.profile" class="rounded-circle mb-2" alt="Project Owner Image" width="60" height="60">
+                            <h6 class="card-title" style="font-size: 1em;">{{ projectOwner.name }}</h6>
+                            <p class="card-text"><small class="text-muted">Project Owner</small></p>
+                        </div>
+                    </div>
+                    <h4 style="font-size: 1.2em;">Team Members</h4>
+                    <ul class="list-group">
+                        <li *ngFor="let member of teamMembers" class="list-group-item" style="padding: 5px;">
+                            <div class="d-flex align-items-center">
+                                <img [src]="member.profile" class="rounded-circle mr-3" alt="Team Member Image" width="30" height="30">
+                                <div>
+                                    <h6 class="mb-0" style="font-size: 0.9em;">{{ member.name }}</h6>
+                                    <p class="mb-0"><small class="text-muted">{{ member.role }}</small></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

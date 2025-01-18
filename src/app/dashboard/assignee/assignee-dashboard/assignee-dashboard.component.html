@@ -1,0 +1,28 @@
+<div class="layout-container">
+    <app-sidebar class="sidebar"></app-sidebar>
+    <div class="main-content">
+        <app-header class="custom-header" (searchEvent)="filterIssues($event)"></app-header>
+        <section class="dashboard p-4">
+            <div class="issue-board row">
+                <div class="col-md-3" *ngFor="let category of issueCategories">
+                    <h3 class="text-center">{{ category }}</h3>
+                    <div *ngFor="let issue of getIssuesByCategory(category)" class="card rounded-4 mb-3">
+                        <div class="issue-card" (click)="viewIssueDetails(issue.issue_id)">
+                            <div class="issue-header">
+                                <span class="issue-id">Id: {{ issue.issue_id }}</span>
+                                <span class="issue-date">{{ issue.createdDate | date:'M/d/yyyy' }}</span>
+                            </div>
+                            <div class="issue-title">{{ issue.summary }}</div>
+                            <div class="issue-description">{{ issue.description }}</div>
+                            <div class="issue-footer">
+                                <img class="issue-avatar" [src]="issue.assigneeImage" alt="{{ issue.assigneeName }}">
+                                <span class="issue-assignee">{{ issue.assigneeName }}</span>
+                                <span class="issue-priority" [ngClass]="getPriorityClass(issue.priority)">{{ issue.priority }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

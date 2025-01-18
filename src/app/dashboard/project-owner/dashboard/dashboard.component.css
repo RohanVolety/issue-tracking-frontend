@@ -1,0 +1,169 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.layout-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+ 
+.sidebar {
+  width: 220px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  height: 100vh; /* Ensure the sidebar extends the full height */
+}
+
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-header {
+  background-color: #ffc107;
+  /* padding: 5px 10px;  */
+  text-align: right;
+  flex-shrink: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-header .header-title {
+  font-size: 18px; 
+}
+
+.dashboard {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* .issue-board .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.issue-board .col-md-3 {
+  flex: 1;
+}
+
+.form-group label {
+  font-size: 14px; 
+}
+
+.form-group input, .form-group select {
+  font-size: 14px; 
+} */
+
+.btn-primary {
+  background-color: #ffc107;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-secondary {
+  background-color: #fff;
+  color: #ffc107;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+
+
+.issue-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 12px; /* Smaller text */
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.issue-id {
+  font-weight: bold;
+}
+
+.issue-date {
+  font-size: 12px; /* Smaller text */
+}
+
+.issue-title {
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.issue-description {
+  margin-top: 5px;
+}
+
+.issue-footer {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.issue-avatar {
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.issue-assignee {
+  margin-right: auto;
+}
+
+.issue-priority {
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-size: 10px; /* Smaller text */
+}
+
+.issue-priority.low {
+  background-color: green;
+  color: white;
+}
+
+.issue-priority.medium {
+  background-color: #f39c12;
+  color: white;
+}
+
+.issue-priority.high {
+  background-color: #dd4b39;
+  color: white;
+}
+
+
+.form-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-row .col {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.form-row .col:last-child {
+  margin-right: 0;
+}
+
+.text-center {
+  text-align: center;
+}
+ 
