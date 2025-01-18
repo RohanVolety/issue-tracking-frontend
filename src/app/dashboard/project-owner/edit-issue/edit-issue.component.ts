@@ -27,18 +27,6 @@ export class EditIssueComponent implements OnInit {
         private projectService: ProjectService,
         private router: Router
     ) {
-        // this.issueForm = this.fb.group({
-        //     summary: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
-        //     project: ['', Validators.required],
-        //     type: ['', Validators.required],
-        //     priority: ['', Validators.required],
-        //     description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(500)]],
-        //     assignee: ['', Validators.required],
-        //     sprint: ['', [Validators.required, Validators.min(1)]],
-        //     status: ['', Validators.required],
-        //     tags: [''],
-        //     storyPoint: ['', [Validators.required, Validators.min(1)]]
-        // });
 
         this.issueForm = this.fb.group({
           summary: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],

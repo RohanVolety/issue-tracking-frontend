@@ -103,7 +103,6 @@ export class DashboardComponent implements OnInit {
   }
 
   onProjectChange(event: Event): void {
-    //   this.selectedProjectId = Number(event.target.value);
     const target = event.target as HTMLSelectElement;
     this.selectedProjectId = Number(target.value);
       const selectedProject = this.projects.find(
@@ -182,9 +181,7 @@ export class DashboardComponent implements OnInit {
         return '';
     }
   }
-//   viewInsights(): void {
-//       this.router.navigate(['/insights', this.selectedProjectId]);
-//   }
+
 viewInsights(): void {
   
     this.router.navigate(['/view-insights']);

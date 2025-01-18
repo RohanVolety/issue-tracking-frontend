@@ -32,12 +32,6 @@ export class AssigneeDashboardComponent implements OnInit {
         this.loadIssues();
     }
 
-    // loadIssues(): void {
-    //     this.issueService.getIssuesByAssignee(this.userId).subscribe(issues => {
-    //         this.issues = issues;
-    //         this.filteredIssues = issues;
-    //     });
-    // }
     loadIssues(): void {
         this.issueService.getIssuesByAssignee(this.userId).subscribe(issues => {
             this.issues = issues;
@@ -53,13 +47,6 @@ export class AssigneeDashboardComponent implements OnInit {
         });
     }
 
-    // filterIssues(): void {
-    //     const searchTextLower = this.searchText.toLowerCase();
-    //     this.filteredIssues = this.issues.filter(issue =>
-    //         issue.summary.toLowerCase().includes(searchTextLower) ||
-    //         issue.description.toLowerCase().includes(searchTextLower)
-    //     );
-    // }
     filterIssues(searchText: string): void {
         this.filteredIssues = this.issues.filter(
             (issue) =>

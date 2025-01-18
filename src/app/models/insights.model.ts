@@ -11,7 +11,6 @@ export interface Insight {
     email: string;
     role: string;
     profile:string,
-    // password:string
   }
   
   export interface ProjectOwner {
@@ -20,6 +19,5 @@ export interface Insight {
     email: string;
     role: string;
     profile:string;
-    // password:string;
   }
   
